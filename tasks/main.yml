@@ -1,16 +1,21 @@
 ---
 # tasks file for certbot-cloudflare
 
-- name: Get software for apt repository management.
-  apt: name={{ item }} state=present
-  with_items:
-    - build-essential
-    - curl
-    - libffi-dev
-    - libssl-dev
-    - python-apt
-    - python-dev
-    - python-pycurl
+- name: install packages - fixme
+  yum:
+    name:
+      - python2
+      - python2-virtualenv
+      - python2-devel
+    state: present
+#   with_items:
+#     - build-essential
+#     - curl
+#     - libffi-dev
+#     - libssl-dev
+#     - python-apt
+#     - python-dev
+#     - python-pycurl
 
 - name: check if certbot-dns-cloudflare plugin is installed
   shell: certbot plugins | grep dns-cloudflare
